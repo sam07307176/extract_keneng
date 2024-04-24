@@ -1,0 +1,16 @@
+keyword = "可能"
+paragraphs_with_keyword = []
+
+with open("./ke_neng_raw.txt", mode='r', encoding="utf-8") as f:
+    paragraph = ""
+    for line in f:
+        if keyword in line:
+            paragraph += line.strip() + " "
+        elif paragraph:
+            paragraphs_with_keyword.append(paragraph)
+            paragraph = ""
+    if paragraph:  
+        paragraphs_with_keyword.append(paragraph)
+
+for paragraph in paragraphs_with_keyword:
+    print(paragraph)
